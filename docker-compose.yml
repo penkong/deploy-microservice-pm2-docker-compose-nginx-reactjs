@@ -36,13 +36,13 @@ services:
     restart: always
     stdin_open: true
     container_name: nextjs
-    depends_on:
-      - goauth
+    # depends_on:
+    #   - goauth
     build:
       context: ./nextjs
       network: host
-    links:
-      - 'goauth'
+    # links:
+    #   - 'goauth'
 
   #
   goauth:
@@ -52,6 +52,8 @@ services:
     # depends_on:
     #   - postgres132user
     image: 'penkong/westgoauth'
+    ports:
+      - '5000'
     environment:
       - PGUSER=postgres
       - PGHOST=postgres
