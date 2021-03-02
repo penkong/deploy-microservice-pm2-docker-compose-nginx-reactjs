@@ -49,8 +49,8 @@ services:
     restart: always
     stdin_open: true
     container_name: goauth
-    depends_on:
-      - postgres132user
+    # depends_on:
+    #   - postgres132user
     image: 'penkong/westgoauth'
     # ports:
     #   - 5000:5000
