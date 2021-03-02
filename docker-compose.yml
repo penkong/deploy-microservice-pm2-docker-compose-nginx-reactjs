@@ -1,0 +1,57 @@
+version: '3.4'
+services:
+  #
+  postgres132user:
+    image: 'postgres:13.2-alpine'
+    restart: always
+    stdin_open: true
+    # environment:
+    # POSTGRES_PASSWORD: password
+
+  #
+  mongo444info:
+    image: 'mongo:4.4.4-bionic'
+    restart: always
+    stdin_open: true
+    # environment:
+    # MONGO_INITDB_ROOT_USERNAME: root
+    # MONGO_INITDB_ROOT_PASSWORD: password
+
+  #
+  nginx:
+    restart: always
+    stdin_open: true
+    depends_on:
+      - nextjs
+      - goauth
+    build:
+      context: ./nginx
+      network: host
+    ports:
+      - 80:80
+
+  #
+  nextjs:
+    restart: always
+    stdin_open: true
+    depends_on:
+      - goauth
+    build:
+      context: ./nextjs
+      network: host
+
+  #
+  goauth:
+    restart: always
+    stdin_open: true
+    depends_on:
+      - postgres132user
+    image: 'penkong/westgoauth'
+    ports:
+      - 5000:5000
+    environment:
+      - PGUSER=postgres
+      - PGHOST=postgres
+      - PGDATABASE=postgres
+      - PGPASSWORD=password
+      - PGPORT=5432
