@@ -34,6 +34,7 @@ services:
   nextjs:
     restart: always
     stdin_open: true
+    container_name: nextjs
     depends_on:
       - goauth
     build:
@@ -46,6 +47,7 @@ services:
   goauth:
     restart: always
     stdin_open: true
+    container_name: goauth
     depends_on:
       - postgres132user
     image: 'penkong/westgoauth'
