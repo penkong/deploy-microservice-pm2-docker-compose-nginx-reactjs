@@ -1,7 +1,6 @@
 // import express from 'express'
 // import next from 'next'
 // import { createProxyMiddleware } from 'http-proxy-middleware'
-export const s = 'sdfsdfsd'
 // const port = process.env.PORT || 3000
 // const dev = process.env.NODE_ENV !== 'production'
 
@@ -11,7 +10,7 @@ export const s = 'sdfsdfsd'
 
 // const apiPaths = {
 //   '/v1': {
-//     target: 'http://0.0.0.0:5000',
+//     target: 'http://goauth:5000/',
 //     pathRewrite: {
 //       '^/v1': '/v1'
 //     },
@@ -41,3 +40,5 @@ export const s = 'sdfsdfsd'
 //   .catch((err: any) => {
 //     console.log('Error:::::', err)
 //   })
+
+export const sdfsdf = 'sdfsdf'

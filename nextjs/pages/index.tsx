@@ -28,6 +28,8 @@ const IndexPage: NextPage<AppProps, PassingProps> = props => {
         console.log(res.data)
       } catch (error) {
         console.log(error)
+      } finally {
+        console.log(3)
       }
     }
     getIt()
