@@ -5,6 +5,7 @@ services:
     image: 'postgres:13.2-alpine'
     restart: always
     stdin_open: true
+    container_name: postgres132user
     # environment:
     # POSTGRES_PASSWORD: password
 
@@ -13,6 +14,7 @@ services:
     image: 'mongo:4.4.4-bionic'
     restart: always
     stdin_open: true
+    container_name: mongo444info
     # environment:
     # MONGO_INITDB_ROOT_USERNAME: root
     # MONGO_INITDB_ROOT_PASSWORD: password
@@ -21,6 +23,7 @@ services:
   nginx:
     restart: always
     stdin_open: true
+    container_name: nginx
     depends_on:
       - nextjs
       - goauth
