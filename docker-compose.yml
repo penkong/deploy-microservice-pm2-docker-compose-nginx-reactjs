@@ -3,7 +3,6 @@ services:
   #
   postgres132user:
     image: 'postgres:13.2-alpine'
-    restart: always
     stdin_open: true
     container_name: postgres132user
     # environment:
@@ -12,7 +11,6 @@ services:
   #
   mongo444info:
     image: 'mongo:4.4.4-bionic'
-    restart: always
     stdin_open: true
     container_name: mongo444info
     # environment:
