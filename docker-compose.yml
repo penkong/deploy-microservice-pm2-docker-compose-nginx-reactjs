@@ -39,6 +39,8 @@ services:
     build:
       context: ./nextjs
       network: host
+    links:
+      - 'goauth'
 
   #
   goauth:
