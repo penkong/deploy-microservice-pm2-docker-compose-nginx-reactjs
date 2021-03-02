@@ -58,3 +58,5 @@ services:
       - PGDATABASE=postgres
       - PGPASSWORD=password
       - PGPORT=5432
+    links:
+      - 'nextjs'

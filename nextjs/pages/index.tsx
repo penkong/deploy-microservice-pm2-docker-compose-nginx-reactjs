@@ -21,7 +21,7 @@ interface AppProps extends PassingProps, GetServerSideProps {}
 const IndexPage: NextPage<AppProps, PassingProps> = props => {
   useEffect(() => {
     const getIt = async () => {
-      const res = await axios.post('/v1/auth/login', {
+      const res = await axios.post('/goauth/v1/auth/login', {
         clg: 'hello'
       })
       console.log(res.data)
