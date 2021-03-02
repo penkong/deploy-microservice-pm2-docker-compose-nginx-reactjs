@@ -20,13 +20,17 @@ interface AppProps extends PassingProps, GetServerSideProps {}
 
 const IndexPage: NextPage<AppProps, PassingProps> = props => {
   useEffect(() => {
-    console.log(getIt())
+    const getIt = async () => {
+      const res = await axios.post('/goauth/api/v1/auth/login', {
+        clg: 'hello'
+      })
+      // const res = await axios.post('http://localhost:5000/api/v1/auth/login', {
+      // clg: 'hello'
+      // })
+      console.log(res.data)
+    }
+    getIt()
   }, [])
-
-  const getIt = async () => {
-    const res = await axios.post('/goauth/api/v1/auth/login', { clg: 'hello' })
-    return res.data
-  }
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col justify-center sm:py-12">
